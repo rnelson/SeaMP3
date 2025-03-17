@@ -23,37 +23,29 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            urlTextBox = new TextBox();
-            button1 = new Button();
+            urlTextBox = new System.Windows.Forms.TextBox();
+            button1 = new System.Windows.Forms.Button();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(31, 15);
-            label1.TabIndex = 0;
-            label1.Text = "URL:";
             // 
             // urlTextBox
             // 
-            urlTextBox.Location = new Point(49, 12);
+            urlTextBox.Location = new System.Drawing.Point(12, 12);
+            urlTextBox.Multiline = true;
             urlTextBox.Name = "urlTextBox";
-            urlTextBox.Size = new Size(283, 23);
+            urlTextBox.Size = new System.Drawing.Size(320, 440);
             urlTextBox.TabIndex = 1;
             // 
             // button1
             // 
-            button1.Location = new Point(338, 11);
+            button1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)0));
+            button1.Location = new System.Drawing.Point(338, 11);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new System.Drawing.Size(75, 441);
             button1.TabIndex = 2;
             button1.Text = "🏴‍☠️";
             button1.UseVisualStyleBackColor = true;
@@ -61,16 +53,14 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(424, 47);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(424, 462);
             Controls.Add(button1);
             Controls.Add(urlTextBox);
-            Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form1";
-            SizeGripStyle = SizeGripStyle.Hide;
+            SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             Text = "SeaMP3";
             Load += Form1_Load;
             ResumeLayout(false);
@@ -79,8 +69,7 @@
 
         #endregion
 
-        private Label label1;
-        private TextBox urlTextBox;
-        private Button button1;
+        private System.Windows.Forms.TextBox urlTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -16,17 +16,40 @@ namespace SeaMP3
         {
             if (string.IsNullOrWhiteSpace(urlTextBox.Text))
             {
-                MessageBox.Show("URL required.", "SeaMP3", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("URL(s) required.", "SeaMP3", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var url = urlTextBox.Text;
-            var result = Task.Run(async () => await Yarr.Download(url)).ConfigureAwait(true).GetAwaiter().GetResult();
+            var urlList = urlTextBox.Text;
+            Download(urlList.Split("\r\n"));
+        }
 
-            if (!result.Success)
+        private void Download(string[] urls)
+        {
+            var failures = new Dictionary<string, string>();
+
+            foreach (var url in urls)
             {
-                MessageBox.Show(string.Join("\n", result.ErrorOutput), "SeaMP3", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                var result = Task.Run(async () => await Yarr.Download(url))
+                    .ConfigureAwait(true)
+                    .GetAwaiter()
+                    .GetResult();
+
+                if (!result.Success)
+                {
+                    failures.Add(url, string.Join("\n", result.ErrorOutput));
+                }
+            }
+
+            if (failures.Count != 0)
+            {
+                foreach (var failure in failures)
+                {
+                    MessageBox.Show($"Failed to download {failure.Key}: \n\n{failure.Value}",
+                        "SeaMP3",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
     }
